@@ -23,7 +23,11 @@ export interface Profile {
   id: string;
   full_name: string;
   role: UserRole;
+  username: string;
+  password?: string;
+  job_title: string;
   center_id?: string;
+  branch_id?: string;
   manager_id?: string;
 }
 
@@ -31,6 +35,13 @@ export interface Center {
   id: string;
   name: string;
   location: string;
+}
+
+export interface Branch {
+  id: string;
+  center_id: string;
+  name: string;
+  manager_name: string;
 }
 
 export interface Form {
