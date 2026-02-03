@@ -31,7 +31,6 @@ import {
   FileBarChart,
   Server,
   Download,
-  // Added missing Calendar icon import
   Calendar
 } from 'lucide-react';
 import * as XLSX from 'xlsx';
@@ -118,7 +117,6 @@ const Visits: React.FC = () => {
     document.body.removeChild(link);
   };
 
-  // 1. شاشة النجاح والاعتماد النهائي
   if (isSubmitted) {
     const finalScore = calculateTotalScore();
     return (
@@ -155,13 +153,11 @@ const Visits: React.FC = () => {
     );
   }
 
-  // 2. واجهة معالج التقييم (Evaluation Wizard)
   if (activeCenterId) {
     const progress = Math.round(((currentStepIndex + 1) / STEPS.length) * 100);
     
     return (
       <div className="max-w-4xl mx-auto space-y-6 pb-24 animate-in fade-in slide-in-from-bottom-6 duration-500">
-        {/* ملخص الهوية في أعلى الصفحة */}
         <div className="bg-white p-8 rounded-3xl border border-slate-200 shadow-sm relative overflow-hidden">
            <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-full -mr-16 -mt-16 opacity-50"></div>
            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 relative z-10">
@@ -194,7 +190,6 @@ const Visits: React.FC = () => {
            </div>
         </div>
 
-        {/* محتوى المرحلة الحالية */}
         <div className="bg-white rounded-[32px] border border-slate-200 shadow-sm overflow-hidden animate-in fade-in duration-300">
           <div className="p-8 bg-slate-50 border-b border-slate-100 flex items-center justify-between">
             <div className="flex items-center gap-4">
@@ -237,7 +232,6 @@ const Visits: React.FC = () => {
                   <div className="flex flex-col items-center gap-3">
                     <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest">تحديد النتيجة</span>
                     <div className="flex gap-2 bg-slate-50 p-2 rounded-2xl border border-slate-100">
-                      {/* عرض أزرار الدرجات السريعة */}
                       {[0, Math.round(q.max_score / 2), q.max_score].map((val) => (
                         <button
                           key={val}
@@ -252,7 +246,6 @@ const Visits: React.FC = () => {
                         </button>
                       ))}
                       
-                      {/* مدخل يدوي للخصومات الدقيقة */}
                       <div className="relative flex items-center">
                         <input 
                           type="number"
@@ -260,7 +253,7 @@ const Visits: React.FC = () => {
                           className={`w-20 h-12 text-center text-sm font-black bg-white rounded-xl border-2 outline-none focus:ring-0 transition-all ${
                             evaluationAnswers[q.id] !== undefined && ![0, Math.round(q.max_score / 2), q.max_score].includes(evaluationAnswers[q.id]) 
                             ? 'border-blue-500 text-blue-600' 
-                            : 'border-slate-100 text-slate-400 focus:border-blue-300'
+                            : 'border-slate-100 text-slate-900 focus:border-blue-300'
                           }`}
                           onChange={(e) => handleScoreChange(q.id, Number(e.target.value))}
                         />
@@ -278,7 +271,6 @@ const Visits: React.FC = () => {
           </div>
         </div>
 
-        {/* أدوات التحكم في مراحل التفتيش */}
         <div className="flex items-center justify-between bg-slate-900 p-8 rounded-[32px] shadow-2xl shadow-slate-200">
           <button 
             onClick={prevStep}
@@ -310,7 +302,6 @@ const Visits: React.FC = () => {
     );
   }
 
-  // 3. عرض قائمة المراكز الرئيسية
   return (
     <div className="space-y-8 animate-in fade-in duration-500 pb-20">
       <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
@@ -415,7 +406,6 @@ const Visits: React.FC = () => {
           </div>
         ))}
         
-        {/* بطاقة إضافة مركز جديد */}
         <button className="border-4 border-dashed border-slate-100 rounded-[40px] p-10 flex flex-col items-center justify-center gap-4 text-slate-300 hover:text-blue-500 hover:border-blue-100 hover:bg-blue-50/30 transition-all group">
            <div className="w-20 h-20 bg-slate-50 text-slate-300 rounded-full flex items-center justify-center group-hover:bg-blue-100 group-hover:text-blue-500 transition-colors">
               <PlusCircle size={40} />
@@ -424,7 +414,6 @@ const Visits: React.FC = () => {
         </button>
       </div>
 
-      {/* سجل الزيارات المنجزة */}
       <div className="mt-12 bg-white rounded-[32px] border border-slate-200 shadow-sm overflow-hidden">
         <div className="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
           <div className="flex items-center gap-3">

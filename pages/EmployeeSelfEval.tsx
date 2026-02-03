@@ -254,7 +254,7 @@ const EmployeeSelfEval: React.FC = () => {
                   <textarea
                     value={answers[field.id] || ''}
                     onChange={(e) => handleTextChange(field.id, e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-5 text-sm focus:ring-2 focus:ring-emerald-500 focus:bg-white outline-none min-h-[120px] transition-all resize-none shadow-inner"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-2xl p-5 text-sm font-bold text-slate-900 focus:ring-2 focus:ring-emerald-500 focus:bg-white outline-none min-h-[120px] transition-all resize-none shadow-inner"
                     placeholder="يرجى كتابة ملاحظاتك هنا بمصداقية..."
                   ></textarea>
                 </div>
